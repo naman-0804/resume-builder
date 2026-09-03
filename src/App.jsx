@@ -1,6 +1,6 @@
 ﻿import React, { useState, useRef, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { Printer, RefreshCw, Trash2, Sun, Moon, Download } from 'lucide-react';
+import { Printer, RefreshCw, Trash2, Sun, Moon } from 'lucide-react';
 import ResumeForm from './components/ResumeForm';
 import ResumePreview from './components/ResumePreview';
 import './App.css';
@@ -187,9 +187,6 @@ function App() {
           <button className="action-btn primary" onClick={handlePrint}>
             <Printer size={16} /> Print / PDF
           </button>
-          <button className="action-btn primary" onClick={handleDownloadWord} style={{ marginLeft: '8px' }}>
-            <Download size={16} /> Word
-          </button>
         </div>
       </header>
 
@@ -206,6 +203,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 
