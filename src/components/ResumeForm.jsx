@@ -2,10 +2,28 @@
 import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import './ResumeForm.css';
 
-const ResumeForm = ({ data, setData }) => {
-  const [collapsed, setCollapsed] = useState({});
+// Section component defined OUTSIDE ResumeForm to prevent re-creation on every render
+const Section = ({ id, title, children, onAdd, addLabel, collapsed, onToggle }) => (
+  <div className="form-section">
+    <div className="form-section-header" onClick={() => onToggle(id)}>
+      <h3>{title}</h3>
+      <div className="section-actions">
+        {onAdd && (
+          <button className="btn-add" onClick={(e) => { e.stopPropagation(); onAdd(); }}>
+            <Plus size={14} /> {addLabel || 'Add'}
+          </button>
+        )}
+        {collapsed ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
+      </div>
+    </div>
+    {!collapsed && <div className="form-section-body">{children}</div>}
+  </div>
+);
 
-  const toggle = (key) => setCollapsed(p => ({ ...p, [key]: !p[key] }));
+const ResumeForm = ({ data, setData }) => {
+  const [collapsedState, setCollapsedState] = useState({});
+
+  const toggle = (key) => setCollapsedState(p => ({ ...p, [key]: !p[key] }));
 
   const handleChange = (section, field, value) => {
     setData(prev => ({ ...prev, [section]: { ...prev[section], [field]: value } }));
@@ -46,28 +64,11 @@ const ResumeForm = ({ data, setData }) => {
     setData({ ...data, [section]: arr });
   };
 
-  const Section = ({ id, title, children, onAdd, addLabel }) => (
-    <div className="form-section">
-      <div className="form-section-header" onClick={() => toggle(id)}>
-        <h3>{title}</h3>
-        <div className="section-actions">
-          {onAdd && (
-            <button className="btn-add" onClick={(e) => { e.stopPropagation(); onAdd(); }}>
-              <Plus size={14} /> {addLabel || 'Add'}
-            </button>
-          )}
-          {collapsed[id] ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
-        </div>
-      </div>
-      {!collapsed[id] && <div className="form-section-body">{children}</div>}
-    </div>
-  );
-
   return (
     <div className="resume-form">
 
       {/* Personal Info */}
-      <Section id="personal" title="Personal Information">
+      <Section id="personal" title="Personal Information" collapsed={collapsedState['personal']} onToggle={toggle}>
         <div className="field-grid">
           <input placeholder="Full Name" value={data.personalInfo.name} onChange={e => handleChange('personalInfo', 'name', e.target.value)} />
           <input placeholder="Website (optional)" value={data.personalInfo.website} onChange={e => handleChange('personalInfo', 'website', e.target.value)} />
@@ -79,7 +80,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Experience */}
-      <Section id="exp" title="Work Experience" onAdd={() => addItem('experience', { title: '', date: '', bullets: [''] })}>
+      <Section id="exp" title="Work Experience" onAdd={() => addItem('experience', { title: '', date: '', bullets: [''] })} collapsed={collapsedState['exp']} onToggle={toggle}>
         {data.experience.map((exp, i) => (
           <div key={i} className="entry-card">
             <button className="card-remove" onClick={() => removeItem('experience', i)}><Trash2 size={14} /></button>
@@ -101,7 +102,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Skills */}
-      <Section id="skills" title="Skills">
+      <Section id="skills" title="Skills" collapsed={collapsedState['skills']} onToggle={toggle}>
         <div className="field-grid">
           <input placeholder="Programming Languages" value={data.skills.programming} onChange={e => handleChange('skills', 'programming', e.target.value)} />
           <input placeholder="Backend" value={data.skills.backend} onChange={e => handleChange('skills', 'backend', e.target.value)} />
@@ -115,7 +116,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Education */}
-      <Section id="edu" title="Education" onAdd={() => addItem('education', { school: '', degree: '', date: '' })}>
+      <Section id="edu" title="Education" onAdd={() => addItem('education', { school: '', degree: '', date: '' })} collapsed={collapsedState['edu']} onToggle={toggle}>
         {data.education.map((edu, i) => (
           <div key={i} className="entry-card">
             <button className="card-remove" onClick={() => removeItem('education', i)}><Trash2 size={14} /></button>
@@ -129,7 +130,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Projects */}
-      <Section id="proj" title="Projects" onAdd={() => addItem('projects', { title: '', github: '', link: '', linkText: '', date: '', bullets: [''] })}>
+      <Section id="proj" title="Projects" onAdd={() => addItem('projects', { title: '', github: '', link: '', linkText: '', date: '', bullets: [''] })} collapsed={collapsedState['proj']} onToggle={toggle}>
         {data.projects.map((proj, i) => (
           <div key={i} className="entry-card">
             <button className="card-remove" onClick={() => removeItem('projects', i)}><Trash2 size={14} /></button>
@@ -154,7 +155,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Achievements */}
-      <Section id="ach" title="Achievements" onAdd={() => addItem('achievements', { title: '', description: '' })}>
+      <Section id="ach" title="Achievements" onAdd={() => addItem('achievements', { title: '', description: '' })} collapsed={collapsedState['ach']} onToggle={toggle}>
         {data.achievements.map((a, i) => (
           <div key={i} className="entry-card inline-card">
             <input className="inline-title" placeholder="Title (bold)" value={a.title} onChange={e => handleArrayChange('achievements', i, 'title', e.target.value)} />
@@ -165,7 +166,7 @@ const ResumeForm = ({ data, setData }) => {
       </Section>
 
       {/* Certifications */}
-      <Section id="cert" title="Certifications" onAdd={() => addItem('certifications', { title: '', description: '' })}>
+      <Section id="cert" title="Certifications" onAdd={() => addItem('certifications', { title: '', description: '' })} collapsed={collapsedState['cert']} onToggle={toggle}>
         {data.certifications.map((c, i) => (
           <div key={i} className="entry-card inline-card">
             <input className="inline-title" placeholder="Certificate Name" value={c.title} onChange={e => handleArrayChange('certifications', i, 'title', e.target.value)} />
