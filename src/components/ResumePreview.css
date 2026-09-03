@@ -1,0 +1,170 @@
+﻿.resume-preview-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.resume-doc {
+  background: white;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 5mm 8mm;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  line-height: 1.22;
+  box-sizing: border-box;
+}
+
+/* Header */
+.r-header {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.r-name {
+  font-size: 24pt;
+  font-weight: normal;
+  margin: 0;
+}
+
+.r-website {
+  font-size: 14pt;
+}
+
+.r-website a, .r-contact a {
+  color: black;
+  text-decoration: underline;
+}
+
+.r-contact {
+  font-size: 10pt;
+  margin: 2px 0 0;
+}
+
+/* Sections */
+.r-section {
+  margin-bottom: 4px;
+}
+
+.r-section-title {
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  margin: 0 0 3px 0;
+  padding-bottom: 1px;
+  letter-spacing: 0.5px;
+}
+
+/* Entries (experience, projects) */
+.r-entry {
+  margin-bottom: 4px;
+}
+
+.r-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10.5pt;
+  margin-bottom: 1px;
+}
+
+.r-entry-date {
+  font-size: 10pt;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.r-bullets {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 10pt;
+}
+
+.r-bullets li {
+  margin-bottom: 1px;
+  text-align: justify;
+}
+
+.r-bullets.r-compact {
+  padding-left: 15px;
+}
+
+/* Skills */
+.r-skills {
+  font-size: 10pt;
+}
+.r-skills div {
+  margin-bottom: 1px;
+}
+
+/* Education */
+.r-edu {
+  font-size: 10pt;
+}
+
+.r-edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1px;
+}
+
+.r-edu-school {
+  flex: 0 0 42%;
+  text-align: left;
+}
+
+.r-edu-degree {
+  flex: 0 0 42%;
+  text-align: center;
+}
+
+.r-edu-date {
+  flex: 0 0 16%;
+  text-align: right;
+}
+
+/* Projects */
+.r-project-header u {
+  text-decoration: underline;
+}
+.r-project-header a {
+  color: black;
+}
+
+/* Print */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .resume-preview-wrapper,
+  .resume-preview-wrapper * {
+    visibility: visible;
+  }
+
+  .resume-preview-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    background: white;
+    width: 210mm;
+    overflow: hidden;
+  }
+
+  .resume-doc {
+    box-shadow: none;
+    width: 100%;
+    margin: 0;
+    padding: 5mm 8mm;
+  }
+}
