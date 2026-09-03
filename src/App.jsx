@@ -50,7 +50,7 @@ const defaultData = {
       date: "Nov-2024",
       bullets: [
         "Designed a two-way real-time communication system where mute patients stream hand-gesture video during live WebRTC-Based video calls, it is processed by ML model and predicted text is delivered live to the doctor\u0027s interface with TTS support",
-        "Tech stack - React.js, MongoDB, WebRTC, Flask, Express.js"
+        "Tech stack \u2013 React.js, MongoDB, WebRTC, Flask, Express.js"
       ]
     },
     {
@@ -63,11 +63,59 @@ const defaultData = {
         "Architected an autonomous multi-tool LLM agent using LangGraph and Gemini, integrating Tavily web search, Wikipedia APIs, computational and local file management tools through dynamic agent workflows.",
         "Developed PDF/DOCX document parsing and file management tools, enabling the agent to read, extract, and answer questions from document content."
       ]
+    },
+    {
+      title: "Diabetes Prediction on Amazon Web Services (AWS)",
+      github: "https://github.com",
+      link: "https://youtube.com",
+      linkText: "YouTube Link",
+      date: "Nov-2024",
+      bullets: [
+        "Built and deployed a diabetes prediction application on AWS using Flask, EC2, S3, Amplify, API Gateway, DynamoDB and SNS.",
+        "Implemented cloud-based model deployment, data storage, and automated email notifications for prediction results."
+      ]
+    },
+    {
+      title: "Adv Secure Virtual Private Cloud Arch with NAT-Based Private Network Isolation on AWS",
+      github: "",
+      link: "https://example.com",
+      linkText: "Implementation Link",
+      date: "Nov-2024",
+      bullets: [
+        "Designed an AWS VPC with private EC2 instances and NAT-based outbound connectivity, demonstrating private network isolation and SSH key-based access using PuTTY.",
+        "Implemented Application Load Balancer with Auto Scaling to distribute traffic across EC2 instances",
+        "Additionally developed an Amazon Lex chatbot with intents (fallback intents / welcome intents)"
+      ]
+    },
+    {
+      title: "Context Driven multi stage retrieval pipelines",
+      github: "https://github.com",
+      link: "https://example.com",
+      linkText: "Website Link",
+      date: "Sep-2025",
+      bullets: [
+        "Developed a RAG-based document intelligence system using Gemini, Pinecone, chunking, query rewriting, embedding generation, vector similarity search, Cross-Encoder reranking, document-level namespace isolation, and context-grounded answer generation, with real-time evaluation of hallucination rate, response consistency, retrieval quality, and latency metrics."
+      ]
+    },
+    {
+      title: "E-Commerce Customer Segmentation and Purchase Prediction using Machine Learning",
+      github: "https://github.com",
+      link: "https://example.com",
+      linkText: "Website Link",
+      date: "Oct-2025",
+      bullets: [
+        "Implemented KMeans clustering with the Elbow Method to segment customers based on income and spending behavior.",
+        "Identified distinct customer groups (high-value, average, and low-engagement) using unsupervised learning.",
+        "Built a Random Forest regressor to predict purchase using behavioral features and cluster obtained from KMeans clustering.",
+        "Visualized customer segments & predictions using scatter, cluster plots to interpret spending behavior, identify high Val groups.",
+        "Tech Stack- Python (Scikit-learn for ML, Pandas for data preprocessing, Matplotlib for visualization)"
+      ]
     }
   ],
   achievements: [
     { title: "Devshouse 2024 (National)", description: "Qualified Round 1 from 2,500+ teams and achieved 5th rank (tied 4th) among 60 finalist teams" },
-    { title: "SIH2024 (National)", description: "Cleared two rounds, placed 33rd among 548 teams, received college nomination for official SIH round" }
+    { title: "SIH2024 (National)", description: "Cleared two rounds, placed 33rd among 548 teams, received college nomination for official SIH round" },
+    { title: "Solve-A-Thon 2024 (Inter)", description: "Secured 6th place among 63 finalist teams; shortlisted from 400+ registrations and received special appreciation from the Vice Chancellor of VIT" }
   ],
   certifications: [
     { title: "Microsoft Azure Data Fundamentals", description: "Score (925/1000), Spoken Tutorial (From IIT Bombay) - C++ certification - Score (73/100)" }
@@ -155,3 +203,5 @@ function App() {
 }
 
 export default App;
+
+

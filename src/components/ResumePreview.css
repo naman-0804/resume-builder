@@ -8,129 +8,144 @@
   background: white;
   width: 210mm;
   min-height: 297mm;
-  padding: 5mm 8mm;
+  max-height: 297mm;
+  padding: 4mm 10mm;
   box-shadow: 0 2px 20px rgba(0,0,0,0.5);
   font-family: "Times New Roman", Times, serif;
   color: black;
-  line-height: 1.22;
+  line-height: 1.15;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Header */
-.r-header {
+.resume-doc .r-header {
   text-align: center;
-  margin-bottom: 2px;
+  margin-bottom: 4pt;
 }
 
-.r-name {
-  font-size: 24pt;
-  font-weight: normal;
+.resume-doc .r-name {
+  font-size: 12pt;
+  font-weight: bold;
   margin: 0;
+  line-height: 1.2;
 }
 
-.r-website {
-  font-size: 14pt;
+.resume-doc .r-website {
+  font-size: 10.5pt;
 }
 
-.r-website a, .r-contact a {
+.resume-doc .r-website a,
+.resume-doc .r-contact a {
   color: black;
   text-decoration: underline;
 }
 
-.r-contact {
-  font-size: 10pt;
-  margin: 2px 0 0;
+.resume-doc .r-contact {
+  font-size: 10.5pt;
+  margin: 0;
 }
 
-/* Sections */
-.r-section {
-  margin-bottom: 4px;
+/* Sections - visible gap between WORK EXP, SKILLS, EDUCATION etc */
+.resume-doc .r-section {
+  margin-top: 6pt;
+  margin-bottom: 0;
 }
 
-.r-section-title {
+.resume-doc .r-section:first-child {
+  margin-top: 2pt;
+}
+
+.resume-doc .r-section-title {
   font-size: 11pt;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid black;
-  margin: 0 0 3px 0;
-  padding-bottom: 1px;
+  border-bottom: 1.5px solid black;
+  margin: 0 0 2pt 0;
+  padding-bottom: 0;
   letter-spacing: 0.5px;
 }
 
-/* Entries (experience, projects) */
-.r-entry {
-  margin-bottom: 4px;
+/* Entries (experience items, project items) */
+.resume-doc .r-entry {
+  margin-bottom: 4pt;
 }
 
-.r-entry-header {
+.resume-doc .r-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-doc .r-entry-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   font-size: 10.5pt;
-  margin-bottom: 1px;
+  margin-bottom: 0;
 }
 
-.r-entry-date {
-  font-size: 10pt;
+.resume-doc .r-entry-date {
+  font-size: 10.5pt;
   white-space: nowrap;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
-.r-bullets {
+.resume-doc .r-bullets {
   margin: 0;
-  padding-left: 18px;
-  font-size: 10pt;
+  padding-left: 16px;
+  font-size: 10.5pt;
 }
 
-.r-bullets li {
-  margin-bottom: 1px;
+.resume-doc .r-bullets li {
+  margin-bottom: 0;
   text-align: justify;
+  line-height: 1.15;
 }
 
-.r-bullets.r-compact {
-  padding-left: 15px;
+.resume-doc .r-bullets.r-compact {
+  padding-left: 14px;
 }
 
 /* Skills */
-.r-skills {
-  font-size: 10pt;
+.resume-doc .r-skills {
+  font-size: 10.5pt;
+  line-height: 1.15;
 }
-.r-skills div {
-  margin-bottom: 1px;
+.resume-doc .r-skills div {
+  margin-bottom: 0;
 }
 
 /* Education */
-.r-edu {
-  font-size: 10pt;
+.resume-doc .r-edu {
+  font-size: 10.5pt;
 }
 
-.r-edu-row {
+.resume-doc .r-edu-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 1px;
+  margin-bottom: 0;
 }
 
-.r-edu-school {
+.resume-doc .r-edu-school {
   flex: 0 0 42%;
   text-align: left;
 }
 
-.r-edu-degree {
+.resume-doc .r-edu-degree {
   flex: 0 0 42%;
   text-align: center;
 }
 
-.r-edu-date {
+.resume-doc .r-edu-date {
   flex: 0 0 16%;
   text-align: right;
 }
 
 /* Projects */
-.r-project-header u {
+.resume-doc .r-project-header u {
   text-decoration: underline;
 }
-.r-project-header a {
+.resume-doc .r-project-header a {
   color: black;
 }
 
@@ -165,6 +180,8 @@
     box-shadow: none;
     width: 100%;
     margin: 0;
-    padding: 5mm 8mm;
+    padding: 4mm 10mm;
+    max-height: 297mm;
+    overflow: hidden;
   }
 }
